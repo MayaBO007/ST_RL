@@ -13,6 +13,9 @@ async function startFirstDay() {
                     document.getElementById("next").style.display = "none";
                     document.getElementById("demoStart").style.display = "none";
                     document.getElementById("ins11").style.display = "none";
+                    let my_awesome_script = document.createElement('script');
+                    my_awesome_script.setAttribute('src', '../functions/orientation.js');
+                    document.head.appendChild(my_awesome_script);
                     let goOnTwo = async function () {
                         let demoDone = await demo();
                         if (demoDone == "done") {
