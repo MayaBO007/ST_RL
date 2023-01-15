@@ -22,6 +22,10 @@ function timeline() {
                         }, timeToFiveSameDay());
                     } else {
                         let goTwo = async function () {
+                            let my_awesome_script = document.createElement('script');
+                            my_awesome_script.setAttribute('src', '../../functions/orientation.js');
+                            // my_awesome_script.src = "../functions/orientation.js";
+                            document.body.appendChild(my_awesome_script);
                             deleteFromSessionData();
                             document.getElementById("startButton").style.display = "inline";
                             document.getElementById("redButton").style.display = "inline";
