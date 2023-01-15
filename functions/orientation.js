@@ -4,7 +4,14 @@
 // ----------------------------------------------------------------------------------------
 // initialize variables:
 var screenOrientationEvents = [];
-window.orientation = 1; // this is the default orientation of the device
+let landscape = window.matchMedia("(orientation: landscape)");
+landscape.addEventListener("change", function (e) {
+    if (e.matches) {
+        // landscape mode
+    } else {
+        showOnlyLandscapeMessage()
+    }
+})
 window.addEventListener("orientationchange", function (event) {
     // if ortation is changed from the main landscape mode
     if (window.orientation == 0) { // originally I used this: event.target.screen.orientation.angle - but this does not work on iphones
