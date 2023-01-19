@@ -18,8 +18,8 @@ async function start2tests() {
                 if (startSwitch == "done1") {
                     // intervalDone.push("done1");
                     setTimeout(() => {
-                        // reset_blueCar();
-                        // reset_redCar();
+                        reset_blueCar();
+                        reset_redCar();
                         document.getElementById("startSwitchTestButton").style.display = "inline";
                         document.getElementById("iframe-element").src = "../../timer/timer.html";
                         document.getElementById('iframe-element').classList.remove('hidden');
