@@ -26,8 +26,8 @@ async function startFirstDay() {
                             document.getElementById("qPage").style.display = "inline";
                             document.getElementById("qStart").style.display = "inline";
                             document.getElementById("qStart").onclick = function () {
-                                platform.goToUrl("questions/Multiple-Choice-Quiz-JavaScript-master/index.html")
-                                // window.open("questions/Multiple-Choice-Quiz-JavaScript-master/index.html");
+                                // platform.goToUrl("days/dayTwo/dayTwo.html")
+                                window.open("questions/Multiple-Choice-Quiz-JavaScript-master/index.html");
                                 document.getElementById("qPage").style.display = "none";
                                 document.getElementById("qStart").style.display = "none";
 
