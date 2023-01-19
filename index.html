@@ -119,17 +119,17 @@
 
 
         //     check if implemented as PWA:
-        // const ifPWAitr = setInterval(() => {
+        const ifPWAitr = setInterval(() => {
 
-        //     var isInWebAppiOS = window.navigator.standalone === true;
-        //     var isInWebAppChrome =
-        //         window.matchMedia("(display-mode: fullscreen)").matches ||
-        //         window.matchMedia("(display-mode: standalone)").matches ||
-        //         window.matchMedia("(display-mode: minimal-ui)").matches;
+            var isInWebAppiOS = window.navigator.standalone === true;
+            var isInWebAppChrome =
+                window.matchMedia("(display-mode: fullscreen)").matches ||
+                window.matchMedia("(display-mode: standalone)").matches ||
+                window.matchMedia("(display-mode: minimal-ui)").matches;
 
         // if app PWA:
-        // if (isInWebAppiOS || isInWebAppChrome) {
-        //     clearInterval(ifPWAitr);
+        if (isInWebAppiOS || isInWebAppChrome) {
+            clearInterval(ifPWAitr);
         document.getElementById("moveToAppButton").style.display = "inline";
         document.getElementById("moveToAppButton").addEventListener("click", function () {
             setTimeout(() => {
@@ -146,8 +146,8 @@
         });
 
 
-        //     }
-        // }, 200);
+            }
+        }, 200);
 
     </script>
 
