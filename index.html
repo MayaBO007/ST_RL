@@ -27,7 +27,7 @@
     https://javascript.plainenglish.io/creating-a-browser-agnostic-pwa-install-button-41039f312fbe
     https://www.geeksforgeeks.org/making-a-simple-pwa-under-5-minutes/
 -->
-    <link rel="apple-touch-icon" sizes="40x40" href="icons/40.png">
+    <!-- <link rel="apple-touch-icon" sizes="40x40" href="icons/40.png">
     <link rel="apple-touch-icon" sizes="50x50" href="icons/50.png">
     <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png">
@@ -41,7 +41,7 @@
     <link rel="apple-touch-icon" sizes="192x192" href="icons/192.png">
     <link rel="apple-touch-icon" sizes="256x256" href="icons/256.png">
     <link rel="apple-touch-icon" sizes="512x512" href="icons/512.png">
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon copy.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon copy.png"> -->
 
 
     <link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.png">
@@ -127,23 +127,23 @@
                 window.matchMedia("(display-mode: standalone)").matches ||
                 window.matchMedia("(display-mode: minimal-ui)").matches;
 
-        // if app PWA:
-        if (isInWebAppiOS || isInWebAppChrome) {
-            clearInterval(ifPWAitr);
-        document.getElementById("moveToAppButton").style.display = "inline";
-        document.getElementById("moveToAppButton").addEventListener("click", function () {
-            setTimeout(() => {
-                document.getElementById("andInstructions").style.display = "none";
-                document.getElementById("iphoneInstructions").style.display = "none";
-                document.getElementById("iphoneYellow").style.display = "none";
-                document.getElementById("notIphoneYellow").style.display = "none";
-                document.getElementById("installIns").style.display = "none";
+            // if app PWA:
+            if (isInWebAppiOS || isInWebAppChrome) {
+                clearInterval(ifPWAitr);
+                document.getElementById("moveToAppButton").style.display = "inline";
+                document.getElementById("moveToAppButton").addEventListener("click", function () {
+                    setTimeout(() => {
+                        document.getElementById("andInstructions").style.display = "none";
+                        document.getElementById("iphoneInstructions").style.display = "none";
+                        document.getElementById("iphoneYellow").style.display = "none";
+                        document.getElementById("notIphoneYellow").style.display = "none";
+                        document.getElementById("installIns").style.display = "none";
 
-                // platform.goToUrl("ET_BL/dayThree/dayThree.html");
-                // platform.goToUrl("days/dayTwo/dayTwo.html");
-                moveToDay()
-            }, 500)
-        });
+                        // platform.goToUrl("ET_BL/dayThree/dayThree.html");
+                        // platform.goToUrl("days/dayTwo/dayTwo.html");
+                        moveToDay()
+                    }, 500)
+                });
 
 
             }
