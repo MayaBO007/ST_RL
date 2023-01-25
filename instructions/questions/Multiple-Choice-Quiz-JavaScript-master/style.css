@@ -115,7 +115,7 @@ body {
     position: absolute;
     bottom: 0px;
     right: 0px;
-    padding: 5px;
+    /* padding: 5px; */
     text-align: right;
 }
 
@@ -138,7 +138,7 @@ body {
     height: 65%;
     width: 59%;
     left: 20%;
-    top: 5%;
+    top: 15%;
 
 }
 
