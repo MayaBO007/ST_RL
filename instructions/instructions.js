@@ -63,6 +63,8 @@ async function startInstructions() {
                                             setTimeout(function () {
                                                 document.getElementById("next").style.display = "inline";
                                             }, 5000);
+
+
                                             document.getElementById("doNotDisturb").onclick = function () {
                                                 noDisturb = 1;
                                                 if (noDisturb == 1) {
@@ -86,6 +88,7 @@ async function startInstructions() {
                                                     }
                                                 }
                                             }
+
                                             document.getElementById("next").onclick = function () {
                                                 nextClick = 6;
                                                 if (nextClick == 6) {
