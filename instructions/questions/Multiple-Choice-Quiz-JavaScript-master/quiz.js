@@ -169,7 +169,7 @@ function scoreRender() {
         document.getElementById("ins12").style.display = "inline";
         document.getElementById("ins12").addEventListener("click", function () {
             setTimeout(() => {
-                platform.goToUrl("days/dayOne/dayOne.html");
+                platform.goToUrl("days/dayOne/training.html");
             }, 200)
         });
     } else {
