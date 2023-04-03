@@ -10,7 +10,7 @@ function moveToDay() {
                 platform.goToUrl("instructions/instructions.html");
             } else if (studySessionData.doneDay1 != "doneDayOne") {
                 if (studySessionData.doneDay1 == "") {
-                    platform.goToUrl("days/dayOne/dayOne.html");
+                    platform.goToUrl("days/dayOne/training.html");
                 } else {
                     document.getElementById("problem").style.display = "inline";
                 }

@@ -10,7 +10,7 @@ const responsesSwitch = {
     blueChoiceSwitch: blueChoiceSwitch,
     allRedPressesSwitch: allRedPressesSwitch,
     allBluePressesSwitch: allBluePressesSwitch,
-    allCorrectFirstPressSwitch: allCorrectFirstPressSwitch,
+    // allCorrectFirstPressSwitch: allCorrectFirstPressSwitch,
     allChoicesSwitch: allChoicesSwitch
 };
 
@@ -103,10 +103,10 @@ async function startIntervalSwitch() {
             // document.getElementById("redButton").style.display = "none";
             clearInterval(sessionIntervalSwitch);
             clearTimeout(sessionTimerSwitch);
-            reset_blueCar();
-            reset_redCar();
             platform.saveSession(responsesSwitch, false);
             reset_airplane();
+            reset_blueCar();
+            reset_redCar();
             timeoutCountSwitch++
             if (timeoutCountSwitch == 1) {
                 resolve("done2");
@@ -134,7 +134,7 @@ async function startIntervalSwitch() {
 //         if (startClickSwitch == 1) {
 //             document.getElementById("startSwitchTestButton").style.display = "none";
 //             startIntervalSwitch();
-//             //msCount();
+//             //getMillisec();
 //         };
 //     };
 // };

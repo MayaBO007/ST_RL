@@ -1,5 +1,3 @@
-
-
 // move to main function
 function timeline() {
     platform.getAllSessions().then((data) => {
@@ -18,7 +16,7 @@ function timeline() {
                     document.getElementById("endDayMsg").addEventListener("click", function () {
                         showWinnings()
                         setTimeout(() => {
-                            platform.goToUrl("days/dayTwo/dayTwo.html");
+                            platform.goToUrl("days/dayTwo/twoTests.html");
                         }, 7000)
                     })
                 }
