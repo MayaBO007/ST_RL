@@ -69,7 +69,7 @@ async function startDevTest() {
                                 buttonChoice = buttonChoice + 1;
                                 if (buttonChoice == 1) {
                                     correctFirstRedPressDevtest.push(new Date().getTime() - milliseconds);
-//                                     allCorrectFirstPressDev.push(new Date().getTime() - milliseconds);
+                                    //                                     allCorrectFirstPressDev.push(new Date().getTime() - milliseconds);
                                 } else {
                                     correctRedPressDevtest.push(new Date().getTime() - milliseconds);
                                 }
@@ -98,7 +98,7 @@ async function startDevTest() {
                                 buttonChoice = buttonChoice + 1;
                                 if (buttonChoice == 1) {
                                     correctFirstBluePressDevtest.push(new Date().getTime() - milliseconds);
-//                                     allCorrectFirstPressDev.push(new Date().getTime() - milliseconds);
+                                    //                                     allCorrectFirstPressDev.push(new Date().getTime() - milliseconds);
                                 } else {
                                     correctBluePressDevtest.push(new Date().getTime() - milliseconds);
                                 }
@@ -140,7 +140,7 @@ async function startDevTest() {
                 clearTimeout(sessionTimerTest);
                 resolve("doneDayTwo");
                 reset_airplane();
-            }, 720000);
+            }, 250000);
             // }, 3000);
         };
         startIntervalDevtest();

@@ -11,7 +11,7 @@ const responsesYellow = {
     yellowChoiceYellow: yellowChoiceYellow,
     allRedPressesYellow: allRedPressesYellow,
     allBluePressesYellow: allBluePressesYellow,
-    allCorrectFirstPressYellow: allCorrectFirstPressYellow,
+    // allCorrectFirstPressYellow: allCorrectFirstPressYellow,
     allChoicesYellow: allChoicesYellow,
     howManyYellows: howManyYellows
 };
@@ -25,7 +25,7 @@ async function getCarNum() {
     do {
 
         carNum = prompt("?כמה מכוניות צהובות ספרת", "");
-    } while (carNum == null || carNum == "");
+    } while (carNum == null || carNum == "" || isNaN(parseInt(carNum)));
 
     // let carNum = prompt("?כמה מכוניות צהובות ספרת", " ");
 
@@ -112,10 +112,9 @@ async function startIntervalYellow() {
 
                         setTimeout(() => {
                             reset_yellowCar();
-                        }, 900);
+                        }, 1000);
                     }
                 };
-                // console.log("Still running?"); //for testing purpose.
             }, 1000);// (Maximal carSpeed)*1000
 
         let sessionTimerYellow = setTimeout(function timeCount() {
@@ -125,9 +124,9 @@ async function startIntervalYellow() {
             clearTimeout(sessionTimerYellow);
             reset_airplane();
             reset_yellowCar();
-            reset_redCar();
             reset_blueCar();
-            timeoutCount++
+            reset_redCar();
+            timeoutCount++;
             if (timeoutCount == 1) {
                 getCarNum().then((carNum) => {
                     howManyYellows.push(carNum);
@@ -155,7 +154,7 @@ async function startIntervalYellow() {
 //         if (startClickYellow == 1) {
 //             document.getElementById("startYellowTestButton").style.display = "none";
 //             startIntervalYellow();
-//             //msCount();
+//             //getMillisec();
 //         };
 //     };
 // };
