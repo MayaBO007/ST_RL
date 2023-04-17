@@ -33,7 +33,7 @@ function timeline() {
                             document.getElementById("gameScreen").style.display = "inline";
                             document.getElementById("startButton").onclick = function () {
                                 document.getElementById("startButton").style.display = "none";
-                                studySessionData.doneDay2 = "stratDayTwo";
+                                studySessionData.doneDay3 = "stratDayThree";
                                 platform.saveSession(studySessionData);
                                 getMillisec();
                                 // msCount();

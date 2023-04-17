@@ -6,6 +6,8 @@ function timeline() {
         let updatedDates = updateDates();
         if (updatedDates.fullDate.getDate() == Number(dayDate())) {
             deleteFromSessionData();
+            studySessionData.doneDay1 = "startDayOne";
+            platform.saveSession(studySessionData, false);
             let goOne = async function () {
                 let doneDay1 = await trainingDay(); // add promise and resolve
                 if (doneDay1 == "done") {
@@ -16,7 +18,7 @@ function timeline() {
                     document.getElementById("endDayMsg").addEventListener("click", function () {
                         showWinnings()
                         setTimeout(() => {
-                            platform.goToUrl("days/dayTwo/twoTests.html");
+                            platform.goToUrl("days/dayTwo/dayTwo.html");
                         }, 7000)
                     })
                 }
