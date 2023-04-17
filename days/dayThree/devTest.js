@@ -138,7 +138,7 @@ async function startDevTest() {
                 document.getElementById("redButton").style.display = "none";
                 clearInterval(sessionIntervalTest);
                 clearTimeout(sessionTimerTest);
-                resolve("doneDayTwo");
+                resolve("doneDevTest");
                 reset_airplane();
             }, 250000);
             // }, 3000);

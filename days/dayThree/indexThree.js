@@ -37,34 +37,52 @@ function timeline() {
                                 platform.saveSession(studySessionData);
                                 getMillisec();
                                 // msCount();
-                                let startTwoTests = async function () {
-                                    deleteFromSessionData();
-                                    let doneDay2 = await start2tests(); // add promise and resolve
-                                    if (doneDay2 == "done") {
-                                        studySessionData.doneDay2 = "doneDayTwo";
-                                        studySessionData.expDaysDate = updatedDates.fullDate;
-                                        platform.saveSession(studySessionData, true)
-                                        document.getElementById("endDayMsg").style.display = "inline";
-                                        document.getElementById("endDayMsg").addEventListener("click", function () {
-                                            showWinnings()
-                                            setTimeout(() => {
-                                                platform.goToUrl("days/dayThree/devTest.html");
-                                            }, 7000)
-                                        })
+                                let startIntervalTest = async function () {
+                                    let startTrainning = await startInterval2Tests2();
+                                    button = randDevButton();
+                                    if (startTrainning == "done3") {
+                                        setTimeout(() => {
+                                            document.getElementById(button).style.display = "inline";
+                                            document.getElementById("iframe-element").style.top = "1%"
+                                            document.getElementById("iframe-element").src = "../../timer/timer.html";
+                                            document.getElementById('iframe-element').classList.remove('hidden');
+                                            document.getElementById("iframe-element").style.display = "inline";
+                                        }, 1000)
+                                        setTimeout(() => {
+                                            document.getElementById(button).style.display = "none";
+                                            document.getElementById("iframe-element").style.display = "none";
+                                            let startDevaluation = async function () {
+                                                let doneDayThree = await startDevTest(); // add promise and resolve
+                                                if (doneDayThree == "doneDevTest") {
+                                                    studySessionData.doneDay3 = "doneDevTest";
+                                                    studySessionData.expDaysDate = updatedDates.fullDate;
+                                                    platform.saveSession(studySessionData, true)
+                                                    // check what's going on here
+                                                    showWinnings()
+                                                    // document.getElementById("endOfDayMessage").style.display = "none";
+                                                    // document.getElementById("todayWins").innerHTML = '';
+                                                    // document.getElementById("redWins").innerHTML = '';
+                                                    // document.getElementById("blueWins").innerHTML = '';
+                                                    setTimeout(() => {
+                                                        document.getElementById("endOfGame").style.display = "inline";
+                                                    }, 7000);
+
+                                                }
+                                            }
+                                            startDevaluation();
+                                        }, 16000);
                                     }
                                 }
-                                startTwoTests()
+                                startIntervalTest();
                             }
-                            startIntervalTest();
                         }
                         goTwo()
                     }
                 } else {
                     document.getElementById("endOfGame").style.display = "inline";
                 }
-            })
-        }
-        )
-        startDayTwo();
+            });
+        });
     }
+    startDayTwo();
 }
