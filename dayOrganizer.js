@@ -20,9 +20,18 @@ function moveToDay() {
                 } else {
                     document.getElementById("problem").style.display = "inline";
                 }
-            } else if (studySessionData.doneDay2 == "doneDayTwo") {
+            } else if ((studySessionData.doneDay2 == "doneDayTwo") && (studySessionData.doneDay3 != "doneDevTest")) {
+                if (studySessionData.doneDay3 == "") {
+                    platform.goToUrl("days/dayThree/dayThree.html");
+                } else {
+                    document.getElementById("problem").style.display = "inline";
+                }
+            } else if (studySessionData.doneDay3 == "doneDevTest") {
                 document.getElementById("endOfGame").style.display = "inline";
+            } else {
+                document.getElementById("problem").style.display = "inline";
             }
+
         })
     });
 }

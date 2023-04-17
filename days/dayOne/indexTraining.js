@@ -8,7 +8,7 @@ function timeline() {
             deleteFromSessionData();
             let goOne = async function () {
                 let doneDay1 = await trainingDay(); // add promise and resolve
-                if (doneDay1 == "doneDayOne") {
+                if (doneDay1 == "done") {
                     studySessionData.doneDay1 = "doneDayOne";
                     studySessionData.expDaysDate = updatedDates.fullDate;
                     platform.saveSession(studySessionData, true)
