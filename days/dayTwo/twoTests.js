@@ -17,8 +17,8 @@ async function start2tests() {
             platform.saveSession(studySessionData);
             getMillisec();
             let startIntervalTest = async function () {
-                let startStar = await startInterval2Tests();
-                if (startStar == "done1") {
+                let startBeforeStar = await startInterval2Tests();
+                if (startBeforeStar == "done1") {
                     intervalDone.push("done1");
                     setTimeout(() => {
                         document.getElementById("startStarTestButton").style.display = "inline";
