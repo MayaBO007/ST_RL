@@ -28,16 +28,16 @@ function randColorYellow() { // 2 or 1 or 0
     return car
 };
 
-// Random car choise switch test:
-function randColorSwitch() {
+// Random car choise star test:
+function randColorStar() {
     const colorArry = [0, 1];
     let car = colorArry[Math.floor(Math.random() * colorArry.length)]
     if (car == 0) {
-        blueChoiceSwitch.push(new Date().getTime() - milliseconds);
+        blueChoiceStar.push(new Date().getTime() - milliseconds);
     } else {
-        redChoiceSwitch.push(new Date().getTime() - milliseconds)
+        redChoiceStar.push(new Date().getTime() - milliseconds)
     }
-    allChoicesSwitch.push(new Date().getTime() - milliseconds);
+    allChoicesStar.push(new Date().getTime() - milliseconds);
     return car
 };
 
@@ -68,8 +68,7 @@ indexV2 = 1;
 // Random count choise function:
 function randCountAirplane() {
     indexV1++
-    indexV2++
-    return (choseCount.slice(indexV1, indexV2));
+    return (choseCount[indexV1]);
 };
 
 
@@ -94,8 +93,7 @@ indexC2 = 1;
 
 function randSpeedCar() {
     indexC1++
-    indexC2++
-    return (choseSpeed.slice(indexC1, indexC2));
+    return (choseSpeed[indexC1]);
 };
 
 function randDevButton() {
@@ -162,7 +160,3 @@ function randTopStars() {
     // indexP2++
     return (topArrayStarts[indexP1]);
 }
-
-
-
-
