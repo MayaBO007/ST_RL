@@ -260,6 +260,7 @@ const allBluePressesStar = [];
 const allCorrectFirstPressStar = [];
 const allChoicesStar = [];
 const allStars = [];
+const howManyStars = [];
 
 const correctFirstRedPressYellow = [];
 const correctFirstBluePressYellow = [];
