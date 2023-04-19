@@ -8,7 +8,6 @@
     <script src="experiments-platform.js"></script>
     <link href="addtohomescreen/style/style.css" rel="stylesheet">
     <link rel="icon" href="icons/favicon.ico">
-    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
 
 
     <!--
@@ -27,18 +26,22 @@
     https://javascript.plainenglish.io/creating-a-browser-agnostic-pwa-install-button-41039f312fbe
     https://www.geeksforgeeks.org/making-a-simple-pwa-under-5-minutes/
 -->
+    <link rel="apple-touch-icon" sizes="40x40" href="icons/40.png">
+    <link rel="apple-touch-icon" sizes="50x50" href="icons/50.png">
     <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="80x80" href="icons/apple-touch-icon-80x80.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-touch-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="iconsapple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-touch-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180x180.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="iconsapple-touch-icon-180x180.png">
+    <!-- <link rel="apple-touch-icon" sizes="192x192" href="icons/192.png"> -->
+    <link rel="apple-touch-icon" sizes="256x256" href="icons/256.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/512.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon copy.png">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
 
 
     <link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.png">
@@ -59,13 +62,16 @@
     <meta name="theme-color" content="black">
 
     <link rel="apple-touch-startup-image" href="pics/Instructions/1.png">
-
+    <img id="startImage" src="pics/moveToApp.png">
     <img id="installIns" ; src="pics/Instructions/installIns.png">
     <img id="andInstructions" ; src="pics/Instructions/installation_guide_Android.png">
     <img id="iphoneInstructions" ; src="pics/Instructions/installation_guide_iOS.png">
     <img id="problem" ; src="pics/problem.png">
     <img id="front" ; src="pics/loadingPage.png">
     <img id="endOfGame" ; src="pics/endOfGame.png">
+    <img id="fiveAM_hor" ; src="pics/5am_hor.png">
+    <img id="fiveAM" ; src="pics/5am.png">
+    <!-- <img id="moveToAppText" ; src="pics/moveToAppText.png"> -->
 
     <div>
         <button type="button" ontouchstart="" onclick=androidIns() id="notIphoneYellow"><img
@@ -75,6 +81,8 @@
         <!-- <button type="button" id="appDownloaded"><img src="pics/appDownloaded.png" width="100%"
                 height="100%" /></button> -->
         <button type="button" ontouchstart="" id="moveToAppButton"><img src="pics/moveToApp.png" width="100%"
+                height="100%" /></button>
+        <button type="button" ontouchstart="" id="moveToAppText"><img src="pics/moveToAppText.png" width="100%"
                 height="100%" /></button>
 
     </div>
@@ -87,6 +95,16 @@
 
 
     <script>
+        setTimeout(function () {
+            document.getElementById("startImage").style.display = "none";
+            document.getElementById("installIns").style.display = "inline";
+            document.getElementById("iphoneYellow").style.display = "inline";
+            document.getElementById("notIphoneYellow").style.display = "inline";
+        }, 1500);
+        document.getElementById("installIns").style.display = "inline";
+        document.getElementById("iphoneYellow").style.display = "inline";
+        document.getElementById("notIphoneYellow").style.display = "inline";
+
         function androidIns() {
             document.getElementById("installIns").style.display = "none";
             document.getElementById("andInstructions").style.display = "inline";
@@ -116,35 +134,53 @@
 
 
         //     check if implemented as PWA:
-        // const ifPWAitr = setInterval(() => {
+        const ifPWAitr = setInterval(() => {
 
-        //     var isInWebAppiOS = window.navigator.standalone === true;
-        //     var isInWebAppChrome =
-        //         window.matchMedia("(display-mode: fullscreen)").matches ||
-        //         window.matchMedia("(display-mode: standalone)").matches ||
-        //         window.matchMedia("(display-mode: minimal-ui)").matches;
+            var isInWebAppiOS = window.navigator.standalone === true;
+            var isInWebAppChrome =
+                window.matchMedia("(display-mode: fullscreen)").matches ||
+                window.matchMedia("(display-mode: standalone)").matches ||
+                window.matchMedia("(display-mode: minimal-ui)").matches;
 
-        //     // if app PWA:
-        //     if (isInWebAppiOS || isInWebAppChrome) {
-        //         clearInterval(ifPWAitr);
-        document.getElementById("moveToAppButton").style.display = "inline";
-        document.getElementById("moveToAppButton").addEventListener("click", function () {
-            setTimeout(() => {
-                document.getElementById("andInstructions").style.display = "none";
-                document.getElementById("iphoneInstructions").style.display = "none";
-                document.getElementById("iphoneYellow").style.display = "none";
-                document.getElementById("notIphoneYellow").style.display = "none";
-                document.getElementById("installIns").style.display = "none";
+            //     // if app PWA:
+            if (isInWebAppiOS || isInWebAppChrome) {
+                clearInterval(ifPWAitr);
+                document.getElementById("moveToAppButton").style.display = "inline";
+                document.getElementById("moveToAppText").style.display = "inline";
+                document.getElementById("moveToAppButton").addEventListener("click", function () {
+                    setTimeout(() => {
+                        document.getElementById("andInstructions").style.display = "none";
+                        document.getElementById("iphoneInstructions").style.display = "none";
+                        document.getElementById("iphoneYellow").style.display = "none";
+                        document.getElementById("notIphoneYellow").style.display = "none";
+                        document.getElementById("installIns").style.display = "none";
+                        document.getElementById("startImage").style.display = "none";
+                        document.getElementById("moveToAppText").style.display = "none";
+                        // platform.goToUrl("days/twoTests/twoTests.html");
+                        // platform.goToUrl("days/dayFour/dayFour.html");
+                        moveToDay()
 
-                // platform.goToUrl("ET_BL/dayThree/dayThree.html");
-                // platform.goToUrl("days/dayTwo/dayTwo.html");
-                moveToDay()
-            }, 500)
-        });
+                    }, 500)
+                });
+                document.getElementById("moveToAppText").addEventListener("click", function () {
+                    setTimeout(() => {
+                        document.getElementById("andInstructions").style.display = "none";
+                        document.getElementById("iphoneInstructions").style.display = "none";
+                        document.getElementById("iphoneYellow").style.display = "none";
+                        document.getElementById("notIphoneYellow").style.display = "none";
+                        document.getElementById("installIns").style.display = "none";
+                        document.getElementById("startImage").style.display = "none";
+                        document.getElementById("moveToAppText").style.display = "none";
+                        // platform.goToUrl("days/twoTests/twoTests.html");
+                        // platform.goToUrl("days/dayFour/dayFour.html");
+                        moveToDay()
+
+                    }, 500)
+                });
 
 
-        //     }
-        // }, 200);
+            }
+        }, 200);
 
     </script>
 

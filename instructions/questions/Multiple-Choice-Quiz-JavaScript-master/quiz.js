@@ -15,7 +15,7 @@ const scoreDiv = document.getElementById("scoreContainer");
 let questions = [
     {
         question: 'כמה זמן יימשך המשחק?',
-        choiceA: 'משך המשחק אינו מוגדר מראש, אך המשחק יכול להימשך עד חמישה ימים',
+        choiceA: 'משך המשחק אינו מוגדר מראש, אך המשחק יכול להימשך עד 13 ימים',
         choiceB: 'שבועיים',
         choiceC: 'חודש',
         correct: "A"
@@ -29,7 +29,7 @@ let questions = [
         question: "כמה זמן נמשך המשחק בכל יום?",
         choiceA: "שעה",
         choiceB: "כמה שרוצים",
-        choiceC: 'עד 15 דקות',
+        choiceC: 'עד 5 דקות',
         correct: "C"
     }
     , {
