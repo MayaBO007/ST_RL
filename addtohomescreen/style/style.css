@@ -163,16 +163,12 @@
 }
 
 @keyframes circle {
-	0% {
+	from {
 		background-color: lightblue;
 	}
 
-	50% {
+	to {
 		background-color: rgb(27, 75, 235);
-	}
-
-	100% {
-		background-color: lightblue;
 	}
 }
 
