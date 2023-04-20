@@ -19,7 +19,17 @@ function timeline() {
                         showWinnings()
                         setTimeout(() => {
                             platform.goToUrl("days/dayTwo/dayTwo.html");
-                        }, 7000)
+                        }, timeToFive())
+                        setTimeout(() => {
+                            hideWinnings();
+                            if (window.matchMedia("(orientation: landscape)").matches) {
+                                hideWinnings();
+                                document.getElementById("fiveAM").style.display = "inline";
+                            } else {
+                                hideWinnings();
+                                document.getElementById("fiveAM_hor").style.display = "inline";
+                            }
+                        }, 10000)
                     })
                 }
             }

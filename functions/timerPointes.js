@@ -195,7 +195,13 @@ function showWinnings() {
     }
 };
 
-let breaks = null;
+function hideWinnings() {
+    document.getElementById("endOfDayMessage").style.display = "none";
+    document.getElementById("todayWins").innerHTML = "";
+    document.getElementById("redWins").innerHTML = "";
+    document.getElementById("blueWins").innerHTML = "";
+    document.getElementById("seeYouTomorrow").innerHTML = "";
+}
 
 function timeToFive() {
     let updatedDates = updateDates();
