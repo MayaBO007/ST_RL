@@ -51,7 +51,15 @@ function timeline() {
                                             showWinnings()
                                             setTimeout(() => {
                                                 platform.goToUrl("days/dayThree/dayThree.html");
-                                            }, 7000)
+                                            }, timeToFive())
+                                            setTimeout(() => {
+                                                hideWinnings();
+                                                if (window.matchMedia("(orientation: landscape)").matches) {
+                                                    document.getElementById("fiveAM").style.display = "inline";
+                                                } else {
+                                                    document.getElementById("fiveAM_hor").style.display = "inline";
+                                                }
+                                            }, 10000);
                                         })
                                     }
                                 }
