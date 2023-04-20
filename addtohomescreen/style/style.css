@@ -154,7 +154,7 @@
 	height: 10%;
 	left: 42.5%;
 	top: 65%;
-	display: none;
+	display: inline;
 	z-index: 999;
 	position: absolute;
 	animation-name: goCircle;
