@@ -163,11 +163,11 @@
 }
 
 @keyframes circle {
-	from {
+	-webkit-from {
 		background-color: lightblue;
 	}
 
-	to {
+	-webkit-to {
 		background-color: rgb(27, 75, 235);
 	}
 }
