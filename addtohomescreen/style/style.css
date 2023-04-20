@@ -158,8 +158,8 @@
 	z-index: 999;
 	position: absolute;
 	-webkit-animation: circle;
-	animation-duration: 0.7s;
-	animation-iteration-count: infinite;
+	-webkit-animation-duration: 0.7s;
+	-webkit-animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes circle {
