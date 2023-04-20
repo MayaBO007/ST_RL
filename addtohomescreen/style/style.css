@@ -159,6 +159,7 @@
 	position: absolute;
 	animation-name: circle;
 	animation-duration: 0.7s;
+	animation-delay: 200ms;
 	animation-iteration-count: infinite;
 }
 
