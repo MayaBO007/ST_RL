@@ -167,43 +167,40 @@
 
 @keyframes goCircle {
 	0% {
-		background-color: rgb(102, 190, 234);
+		/* background-color: rgb(102, 190, 234); */
 		left: 20%;
-		top: 65%;
 	}
 
 	50% {
-		background-color: blue;
+		/* background-color: blue; */
 		left: 80%;
-		top: 65%;
 	}
 
 	100% {
-		background-color: rgb(102, 190, 234);
+		/* background-color: rgb(102, 190, 234); */
 		left: 20%;
-		top: 65%;
 	}
 }
 
-@-webkit-keyframes goCircle {
+/* @-webkit-keyframes goCircle {
 	0% {
-		-webkit-background-color: rgb(102, 190, 234);
-		-webkit-left: 20%;
+		-webkit-background-origin: rgb(102, 190, 234);
+		-webkit-le: 20%;
 		-webkit-top: 65%;
 	}
 
 	50% {
-		-webkit-background-color: blue;
+		-webkit-background-origin: blue;
 		-webkit-left: 80%;
 		-webkit-top: 65%;
 	}
 
 	100% {
-		-webkit-background-color: rgb(102, 190, 234);
+		-webkit-background-origin: rgb(102, 190, 234);
 		-webkit-left: 20%;
 		-webkit-top: 65%;
 	}
-}
+} */
 
 #endOfGame {
 	position: absolute;
