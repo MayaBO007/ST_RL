@@ -167,12 +167,12 @@
 
 @keyframes goCircle {
 	from {
-		background-color: lightblue !important;
+		background-color: lightblue;
 
 	}
 
 	to {
-		background-color: blue !important;
+		background-color: blue;
 
 	}
 
@@ -180,11 +180,11 @@
 
 @-webkit-keyframes goCircle {
 	from {
-		-webkit-background-origin: lightblue !important
+		-webkit-background-origin: lightblue !important;
 	}
 
 	to {
-		-webkit-background-origin: blue !important
+		-webkit-background-origin: blue !important;
 	}
 
 }
