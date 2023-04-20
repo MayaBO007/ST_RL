@@ -167,13 +167,13 @@
 
 @keyframes goCircle {
 	from {
-		/* background-color: rgb(102, 190, 234); */
-		left: 20%;
+		background-color: rgb(102, 190, 234) !important;
+		/* left: 20%; */
 	}
 
 	to {
-		/* background-color: blue; */
-		left: 80%;
+		background-color: blue !important;
+		/* left: 80%; */
 	}
 
 }
