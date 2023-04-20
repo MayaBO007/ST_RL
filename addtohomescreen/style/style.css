@@ -148,7 +148,7 @@
 }
 
 #loading {
-	background-color: lightblue;
+	background: lightblue;
 	border-radius: 50%;
 	width: 16%;
 	height: 10%;
@@ -167,12 +167,12 @@
 
 @keyframes goCircle {
 	from {
-		background-color: lightblue;
+		background: lightblue;
 
 	}
 
 	to {
-		background-color: blue;
+		background: blue;
 
 	}
 
