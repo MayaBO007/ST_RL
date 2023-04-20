@@ -162,12 +162,12 @@
 	animation-iteration-count: infinite;
 }
 
-@keyframes circle {
-	-webkit-from {
+@webkit-keyframes circle {
+	from {
 		background-color: lightblue;
 	}
 
-	-webkit-to {
+	to {
 		background-color: rgb(27, 75, 235);
 	}
 }
