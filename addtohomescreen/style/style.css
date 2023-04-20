@@ -180,11 +180,11 @@
 
 @-webkit-keyframes goCircle {
 	from {
-		-webkit-background-origin: lightblue !important;
+		background: lightblue !important;
 	}
 
 	to {
-		-webkit-background-origin: blue !important;
+		background: blue !important;
 	}
 
 }
