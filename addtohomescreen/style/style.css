@@ -158,12 +158,34 @@
 	z-index: 999;
 	position: absolute;
 	animation-name: circle;
+	-webkit-animation: circle;
 	animation-duration: 0.7s;
-	animation-delay: 200ms;
+	-webkit-animation-duration: 0.7s;
 	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
 }
 
 @keyframes circle {
+	0% {
+		background-color: rgb(102, 190, 234);
+		left: 20%;
+		top: 65%;
+	}
+
+	50% {
+		background-color: blue;
+		left: 80%;
+		top: 65%;
+	}
+
+	100% {
+		background-color: rgb(102, 190, 234);
+		left: 20%;
+		top: 65%;
+	}
+}
+
+@-webkit-keyframes circle {
 	0% {
 		background-color: rgb(102, 190, 234);
 		left: 20%;
