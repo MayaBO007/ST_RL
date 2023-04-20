@@ -157,12 +157,12 @@
 	display: none;
 	z-index: 999;
 	position: absolute;
-	-webkit-animation: circle;
-	-webkit-animation-duration: 0.7s;
-	-webkit-animation-iteration-count: infinite;
+	animation-name: circle;
+	animation-duration: 0.7s;
+	animation-iteration-count: infinite;
 }
 
-@-webkit-keyframes circle {
+@keyframes circle {
 	from {
 		background-color: lightblue;
 	}
