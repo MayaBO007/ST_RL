@@ -137,6 +137,8 @@ async function startIntervalYellow() {
                 clearInterval(sessionIntervalYellow);
                 clearTimeout(sessionTimerYellow);
                 reset_airplane();
+                reset_blueCar();
+                reset_redCar();
             }
         }, 90000);
         // }, 8000);
