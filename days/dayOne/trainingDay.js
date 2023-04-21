@@ -41,10 +41,10 @@ async function trainingDay() {
         document.getElementById("blueButton").style.display = "inline";
         document.getElementById("gameScreen").style.display = "inline";
         document.getElementById("startButton").onclick = function () {
-            document.getElementById("loading").style.display = "inline";
+            // document.getElementById("loading").style.display = "inline";
             document.getElementById("startButton").style.display = "none";
-            studySessionData.isDayDone = "startDay";
-            platform.saveSession(studySessionData);
+            studySessionData.doneDay1 = "startDayOne";
+            platform.saveSession(studySessionData, false);
             function startIntervalTrainingDay() {
                 let randCount = randCountAirplane();
                 document.getElementById("break").style.display = "none";

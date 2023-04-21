@@ -5,6 +5,7 @@ function timeline() {
     platform.getAllSessions().then((data) => {
         getIndexSessionData(data).then((i) => {
             studySessionData = data[i];
+            deleteFromSessionData();
             let updatedDates = updateDates();
             if (updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
                 if (window.matchMedia("(orientation: landscape)").matches) {
@@ -28,7 +29,6 @@ function timeline() {
                         my_awesome_script.setAttribute('src', '../../functions/orientation.js');
                         // my_awesome_script.src = "../functions/orientation.js";
                         document.body.appendChild(my_awesome_script);
-                        deleteFromSessionData();
                         document.getElementById("startButton").style.display = "inline";
                         document.getElementById("redButton").style.display = "inline";
                         document.getElementById("blueButton").style.display = "inline";
