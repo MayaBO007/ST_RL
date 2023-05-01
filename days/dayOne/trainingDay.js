@@ -44,7 +44,7 @@ async function trainingDay() {
             // document.getElementById("loading").style.display = "inline";
             document.getElementById("startButton").style.display = "none";
             studySessionData.doneDay1 = "startDayOne";
-            platform.saveSession(studySessionData, false);
+            platform.saveSession(studySessionData, true);
             function startIntervalTrainingDay() {
                 let randCount = randCountAirplane();
                 document.getElementById("break").style.display = "none";
