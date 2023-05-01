@@ -34,7 +34,7 @@ function timeline() {
                             document.getElementById("startButton").onclick = function () {
                                 document.getElementById("startButton").style.display = "none";
                                 studySessionData.doneDay3 = "stratDayThree";
-                                platform.saveSession(studySessionData);
+                                platform.saveSession(studySessionData, true);
                                 getMillisec();
                                 // msCount();
                                 let startIntervalTest = async function () {

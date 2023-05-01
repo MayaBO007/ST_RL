@@ -36,11 +36,11 @@ function timeline() {
                         document.getElementById("startButton").onclick = function () {
                             document.getElementById("startButton").style.display = "none";
                             studySessionData.doneDay2 = "stratDayTwo";
-                            platform.saveSession(studySessionData);
+                            platform.saveSession(studySessionData, true);
                             getMillisec();
                             let startTwoTests = async function () {
                                 let goTwoTests = async function () {
-                                    deleteFromSessionData();
+                                    // deleteFromSessionData();
                                     let doneTest1 = await start2tests(); // add promise and resolve
                                     if (doneTest1 == "done") {
                                         studySessionData.doneDay2 = 'doneDayTwo';
