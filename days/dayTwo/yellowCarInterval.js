@@ -139,6 +139,7 @@ async function startIntervalYellow() {
                 reset_airplane();
                 reset_blueCar();
                 reset_redCar();
+                reset_yellowCar();
             }
         }, 90000);
         // }, 8000);
