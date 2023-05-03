@@ -21,6 +21,8 @@ async function start2tests() {
                 if (startBeforeStar == "done1") {
                     intervalDone.push("done1");
                     setTimeout(() => {
+                        document.getElementById("redButton").style.display = "none";
+                        document.getElementById("blueButton").style.display = "none";
                         document.getElementById("startStarTestButton").style.display = "inline";
                         document.getElementById("iframe-element").src = "../../timer/timer.html";
                         // document.getElementById('iframe-element').classList.remove('hidden');
@@ -38,6 +40,8 @@ async function start2tests() {
                             let endStar = await startIntervalStar();
                             if (endStar == "done2") {
                                 setTimeout(() => {
+                                    document.getElementById("redButton").style.display = "none";
+                                    document.getElementById("blueButton").style.display = "none";
                                     document.getElementById("startAfterStarTestButton").style.display = "inline";
                                     document.getElementById("iframe-element2").style.top = "1%"
                                     document.getElementById("iframe-element2").src = "../../timer/timer2.html";
@@ -61,6 +65,7 @@ async function start2tests() {
                                                 document.getElementById("startYellowTestButton").style.display = "inline";
                                             }, 1000)
                                             setTimeout(() => {
+
                                                 document.getElementById("iframe-element").src = "../../timer/timer.html";
                                                 document.getElementById("iframe-element").style.display = "inline";
                                                 document.getElementById("iframe-element").style.top = "18%";
