@@ -110,28 +110,30 @@ async function startDevTest() {
                             }, carSpeed * 1000);
                         }
 
-                        if (countingCars >= 280 & breaks <= 2) {
-                            clearInterval(sessionIntervalTest);
-                            reset_redCar();
-                            reset_blueCar();
-                            reset_airplane();
-                            document.getElementById("gameScreen").style.display = "none";
-                            document.getElementById("redButton").style.display = "none";
-                            document.getElementById("blueButton").style.display = "none";
-                            document.getElementById("break").style.display = "inline";
-                            document.getElementById("iframe-element3").src = "../../timer/timer3.html";
-                            document.getElementById("iframe-element3").style.display = "inline";
-                            document.getElementById("iframe-element3").style.top = "0%";
-                            countingCars = 0;
-                            setTimeout(() => {
-                                startIntervalDevtest();
-                                document.getElementById("iframe-element3").src = "";
-                                document.getElementById("iframe-element3").style.display = "none";
-                            }, 30500);
-                            breaks++;
-                        }
+                        // if (countingCars >= 280 & breaks <= 2) {
+                        //     clearInterval(sessionIntervalTest);
+                        //     reset_redCar();
+                        //     reset_blueCar();
+                        //     reset_airplane();
+                        //     document.getElementById("gameScreen").style.display = "none";
+                        //     document.getElementById("redButton").style.display = "none";
+                        //     document.getElementById("blueButton").style.display = "none";
+                        //     document.getElementById("break").style.display = "inline";
+                        //     document.getElementById("iframe-element3").src = "../../timer/timer3.html";
+                        //     document.getElementById("iframe-element3").style.display = "inline";
+                        //     document.getElementById("iframe-element3").style.top = "0%";
+                        //     countingCars = 0;
+                        //     setTimeout(() => {
+                        //         startIntervalDevtest();
+                        //         document.getElementById("iframe-element3").src = "";
+                        //         document.getElementById("iframe-element3").style.display = "none";
+                        //     }, 30500);
+                        //     breaks++;
+                        // }
                     }
+
                 }, 1000);// (Maximal carSpeed)*1000
+
             let sessionTimerTest = setTimeout(function timeCount() {
                 platform.saveSession(responsesDev, false);
                 document.getElementById("blueButton").style.display = "none";
@@ -140,6 +142,8 @@ async function startDevTest() {
                 clearTimeout(sessionTimerTest);
                 resolve("doneDevTest");
                 reset_airplane();
+                reset_blueCar();
+                reset_redCar();
             }, 250000);
             // }, 3000);
         };

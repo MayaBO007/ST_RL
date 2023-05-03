@@ -57,6 +57,8 @@ function timeline() {
                                                     studySessionData.doneDay3 = "doneDevTest";
                                                     studySessionData.expDaysDate = updatedDates.fullDate;
                                                     platform.saveSession(studySessionData, true)
+                                                    document.getElementById("blueButton").style.display = "none";
+                                                    document.getElementById("redButton").style.display = "none";
                                                     // check what's going on here
                                                     showWinnings()
                                                     // document.getElementById("endOfDayMessage").style.display = "none";
