@@ -123,7 +123,7 @@ async function startIntervalStar() {
             reset_redCar();
             timeoutCountStar++;
             endStar = 1;
-            if (timeoutCountStar == 1) {
+            if (timeoutCountStar >= 1) {
                 getStarNum().then((starNum) => {
                     howManyStars.push(starNum);
                     platform.saveSession(responsesStar, false);
@@ -133,8 +133,8 @@ async function startIntervalStar() {
                 clearInterval(sessionIntervalStar);
                 clearTimeout(sessionTimerStar);
                 reset_airplane();
-                reset_blueCar();
-                reset_redCar();
+                // reset_blueCar();
+                // reset_redCar();
             }
         }, 90000);
         // }, 30000);

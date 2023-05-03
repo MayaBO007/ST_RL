@@ -55,8 +55,8 @@ async function start2tests() {
                                         if (afterStar == "done3") {
                                             // document.getElementById("blueButton").style.display = "none";
                                             // document.getElementById("redButton").style.display = "none";
-                                            reset_blueCar();
-                                            reset_redCar();
+                                            // reset_blueCar();
+                                            // reset_redCar();
                                             setTimeout(() => {
                                                 document.getElementById("startYellowTestButton").style.display = "inline";
                                             }, 1000)
@@ -74,9 +74,9 @@ async function start2tests() {
                                                 let startYellow = async function () {
                                                     let endYellowTest = await startIntervalYellow();
                                                     if (endYellowTest == "done4") {
-                                                        reset_blueCar();
-                                                        reset_redCar();
-                                                        reset_yellowCar();
+                                                        // reset_blueCar();
+                                                        // reset_redCar();
+                                                        // reset_yellowCar();
                                                         document.getElementById("blueButton").style.display = "none";
                                                         document.getElementById("redButton").style.display = "none";
                                                         setTimeout(() => {
@@ -95,8 +95,8 @@ async function start2tests() {
                                                             let endYellow = async function () {
                                                                 let doneTwoTests = await startInterval2Tests3();
                                                                 if (doneTwoTests == "done5") {
-                                                                    reset_blueCar();
-                                                                    reset_redCar();
+                                                                    // reset_blueCar();
+                                                                    // reset_redCar();
                                                                     resolve("done");
                                                                 }
                                                             }
