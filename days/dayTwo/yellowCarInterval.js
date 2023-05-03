@@ -126,7 +126,7 @@ async function startIntervalYellow() {
             // reset_blueCar();
             // reset_redCar();
             timeoutCount++;
-            if (timeoutCount == 1) {
+            if (timeoutCount >= 1) {
                 getCarNum().then((carNum) => {
                     howManyYellows.push(carNum);
                     platform.saveSession(responsesYellow, false);
