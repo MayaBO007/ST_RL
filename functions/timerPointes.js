@@ -219,6 +219,34 @@ function timeToFiveSameDay() {
     return timeToWait;
 }
 
+function sumCorrectFirstPress() {
+    platform.getAllSessions().then((data) => {
+        const dateMap = new Map();
+        data.forEach(entry => {
+            if ('correctFirstBluePress' in entry && 'correctFirstRedPress' in entry) {
+                const { todayDate, correctFirstBluePress, correctFirstRedPress } = entry;
+                const key = todayDate;
+                const existing = dateMap.get(key);
+                const sumBlue = correctFirstBluePress.length;
+                const sumRed = correctFirstRedPress.length;
+                if (existing) {
+                    const { blueMax, redMax } = existing;
+                    if (sumBlue > blueMax) existing.blueMax = sumBlue;
+                    if (sumRed > redMax) existing.redMax = sumRed;
+                } else {
+                    dateMap.set(key, { blueMax: sumBlue, redMax: sumRed });
+                }
+            }
+        });
+        const sum = { blueSum: 0, redSum: 0 };
+        dateMap.forEach(({ blueMax, redMax }) => {
+            sum.blueSum += blueMax;
+            sum.redSum += redMax;
+        });
+        return sum;
+    })
+}
+
 //jQuery plugin
 // jQuery.fn.ForceNumericOnly =
 //     function () {
