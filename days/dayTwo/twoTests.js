@@ -62,6 +62,8 @@ async function start2tests() {
                                             // reset_blueCar();
                                             // reset_redCar();
                                             setTimeout(() => {
+                                                document.getElementById("redButton").style.display = "none";
+                                                document.getElementById("blueButton").style.display = "none";
                                                 document.getElementById("startYellowTestButton").style.display = "inline";
                                             }, 1000)
                                             setTimeout(() => {
