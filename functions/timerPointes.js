@@ -223,12 +223,24 @@ function sumCorrectFirstPress() {
     platform.getAllSessions().then((data) => {
         const dateMap = new Map();
         data.forEach(entry => {
-            if ('correctFirstBluePress' in entry && 'correctFirstRedPress' in entry) {
-                const { todayDate, correctFirstBluePress, correctFirstRedPress } = entry;
+            if (('correctFirstBluePress' in entry && 'correctFirstRedPress' in entry) ||
+                ('correctFirstBluePressYellow' in entry && 'correctFirstRedPressYellow' in entry) ||
+                ('correctFirstBluePressStar' in entry && 'correctFirstRedPressStar' in entry) ||
+                ('correctFirstRedPressDevtest' in entry)) {
+                const { todayDate } = entry;
                 const key = todayDate;
+                const sumBlue =
+                    entry.correctFirstBluePress?.length ||
+                    entry.correctFirstBluePressYellow?.length ||
+                    entry.correctFirstBluePressStar?.length ||
+                    0;
+                const sumRed =
+                    entry.correctFirstRedPress?.length ||
+                    entry.correctFirstRedPressYellow?.length ||
+                    entry.correctFirstRedPressStar?.length ||
+                    entry.correctFirstRedPressDevtest?.length ||
+                    0;
                 const existing = dateMap.get(key);
-                const sumBlue = correctFirstBluePress.length;
-                const sumRed = correctFirstRedPress.length;
                 if (existing) {
                     const { blueMax, redMax } = existing;
                     if (sumBlue > blueMax) existing.blueMax = sumBlue;
@@ -243,7 +255,9 @@ function sumCorrectFirstPress() {
             sum.blueSum += blueMax;
             sum.redSum += redMax;
         });
-        return sum;
+        totalBlues = sum.blueSum;
+        totalReds = sum.redSum;
+        // return sum;
     })
 }
 
