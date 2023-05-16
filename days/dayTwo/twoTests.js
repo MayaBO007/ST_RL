@@ -81,9 +81,9 @@ async function start2tests() {
                                                 let startYellow = async function () {
                                                     let endYellowTest = await startIntervalYellow();
                                                     if (endYellowTest == "done4") {
-                                                        // reset_blueCar();
-                                                        // reset_redCar();
-                                                        // reset_yellowCar();
+                                                        reset_blueCar();
+                                                        reset_redCar();
+                                                        reset_yellowCar();
                                                         document.getElementById("blueButton").style.display = "none";
                                                         document.getElementById("redButton").style.display = "none";
                                                         setTimeout(() => {

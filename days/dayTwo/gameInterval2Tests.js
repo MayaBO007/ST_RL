@@ -303,8 +303,8 @@ async function startInterval2Tests3() {
             clearTimeout(sessionTimer2test3);
             platform.saveSession(responsesTrainingDataThree, false);
             reset_airplane();
-            // reset_blueCar();
-            // reset_redCar();
+            reset_blueCar();
+            reset_redCar();
             countTimeout3++;
             if (countTimeout3 == 1) {
                 resolve("done5");
