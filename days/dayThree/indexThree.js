@@ -1,3 +1,8 @@
+const totalWins = {
+    totalBlues: totalBlues,
+    totalReds: totalReds
+}
+
 function timeline() {
     let startDayTwo = async function () {
         platform.getAllSessions().then((data) => {

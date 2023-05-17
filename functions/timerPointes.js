@@ -167,33 +167,35 @@ const todayHeb = ":היום הרווחת";
 const redCoinsHeb = ":מטבעות אדומים";
 const blueCoinsHeb = ":מטבעות כחולים";
 const seeYouTomorrowHeb = "(:!נתראה מחר";
+const gameOverHeb = "!המשחק הסתיים";
+const totWinsBlueHeb = ":סה״כ מטבעות כחולים שנצברו";
+const totWinsRedHeb = ":סה״כ מטבעות אדומים שנצברו";
+const thanksForPlayingHeb = "!תודה ששיחקתם";
+const contectUsHeb = "אנא פנו אלינו במייל";
 
+function showWinningsEnd(sum) {
+    document.getElementById("blueButton").style.display = "none";
+    document.getElementById("redButton").style.display = "none";
+    document.getElementById("endOfGameMessage").style.display = "inline";
+    document.getElementById("gameOver").innerHTML = gameOverHeb;
+    document.getElementById("totWinsBlue").innerHTML = sum.blueSum + " " + totWinsBlueHeb;
+    document.getElementById("totWinsRed").innerHTML = sum.redSum + " " + totWinsRedHeb;
+    document.getElementById("thanksForPlaying").innerHTML = thanksForPlayingHeb;
+    document.getElementById("contectUs").innerHTML = contectUsHeb;
+}
 
 function showWinnings() {
+
     let redWinsLength = correctFirstRedPress.length + correctFirstRedPressYellow.length + correctFirstRedPressStar.length; //+ correctRedPressDevtest.length
     let blueWinsLength = correctFirstBluePress.length + correctFirstBluePressStar.length + correctFirstBluePressYellow.length; //+ correctBluePressDevtest.length
-    if (devButton[0] == 0) {
-        redWinsLength = redWinsLength + correctFirstRedPressDevtest.length;
-    } else {
-        blueWinsLength = blueWinsLength + correctFirstBluePressDevtest.length;
-    }
-    if (studySessionData.doneDay2 == "doneDayTwo") {
-        document.getElementById("blueButton").style.display = "none";
-        document.getElementById("redButton").style.display = "none";
-        document.getElementById("endOfDayMessage").style.display = "inline";
-        document.getElementById("todayWins").innerHTML = todayHeb;
-        document.getElementById("redWins").innerHTML = redWinsLength + " " + redCoinsHeb;
-        document.getElementById("blueWins").innerHTML = blueWinsLength + " " + blueCoinsHeb;
-    } else {
-        document.getElementById("blueButton").style.display = "none";
-        document.getElementById("redButton").style.display = "none";
-        document.getElementById("endOfDayMessage").style.display = "inline";
-        document.getElementById("todayWins").innerHTML = todayHeb;
-        document.getElementById("redWins").innerHTML = redWinsLength + " " + redCoinsHeb;
-        document.getElementById("blueWins").innerHTML = blueWinsLength + " " + blueCoinsHeb;
-        document.getElementById("seeYouTomorrow").innerHTML = seeYouTomorrowHeb;
-    }
-};
+    document.getElementById("blueButton").style.display = "none";
+    document.getElementById("redButton").style.display = "none";
+    document.getElementById("endOfDayMessage").style.display = "inline";
+    document.getElementById("todayWins").innerHTML = todayHeb;
+    document.getElementById("redWins").innerHTML = redWinsLength + " " + redCoinsHeb;
+    document.getElementById("blueWins").innerHTML = blueWinsLength + " " + blueCoinsHeb;
+    document.getElementById("seeYouTomorrow").innerHTML = seeYouTomorrowHeb;
+}
 
 function hideWinnings() {
     document.getElementById("endOfDayMessage").style.display = "none";
@@ -201,6 +203,14 @@ function hideWinnings() {
     document.getElementById("redWins").innerHTML = "";
     document.getElementById("blueWins").innerHTML = "";
     document.getElementById("seeYouTomorrow").innerHTML = "";
+}
+function hideWinningsEnd() {
+    document.getElementById("endOfGameMessage").style.display = "none";
+    document.getElementById("gameOver").innerHTML = "";
+    document.getElementById("totWinsBlue").innerHTML = "";
+    document.getElementById("totWinsRed").innerHTML = "";
+    document.getElementById("thanksForPlaying").innerHTML = "";
+    document.getElementById("contectUs").innerHTML = "";
 }
 
 function timeToFive() {
@@ -219,47 +229,35 @@ function timeToFiveSameDay() {
     return timeToWait;
 }
 
-function sumCorrectFirstPress() {
-    platform.getAllSessions().then((data) => {
-        const dateMap = new Map();
-        data.forEach(entry => {
-            if (('correctFirstBluePress' in entry && 'correctFirstRedPress' in entry) ||
-                ('correctFirstBluePressYellow' in entry && 'correctFirstRedPressYellow' in entry) ||
-                ('correctFirstBluePressStar' in entry && 'correctFirstRedPressStar' in entry) ||
-                ('correctFirstRedPressDevtest' in entry)) {
-                const { todayDate } = entry;
-                const key = todayDate;
-                const sumBlue =
-                    entry.correctFirstBluePress?.length ||
-                    entry.correctFirstBluePressYellow?.length ||
-                    entry.correctFirstBluePressStar?.length ||
-                    0;
-                const sumRed =
-                    entry.correctFirstRedPress?.length ||
-                    entry.correctFirstRedPressYellow?.length ||
-                    entry.correctFirstRedPressStar?.length ||
-                    entry.correctFirstRedPressDevtest?.length ||
-                    0;
-                const existing = dateMap.get(key);
-                if (existing) {
-                    const { blueMax, redMax } = existing;
-                    if (sumBlue > blueMax) existing.blueMax = sumBlue;
-                    if (sumRed > redMax) existing.redMax = sumRed;
-                } else {
-                    dateMap.set(key, { blueMax: sumBlue, redMax: sumRed });
+async function sumCorrectFirstPress() {
+    return new Promise((resolve, reject) => {
+        platform.getAllSessions().then((data) => {
+            let totalBlueSum = 0;
+            let totalRedSum = 0;
+
+            data.forEach((entry) => {
+                for (const key in entry) {
+                    if (key.startsWith('correctFirstBluePress')) {
+                        const pressArray = entry[key];
+                        totalBlueSum += pressArray.length;
+                    } else if (key.startsWith('correctFirstRedPress')) {
+                        const pressArray = entry[key];
+                        totalRedSum += pressArray.length;
+                    }
                 }
-            }
-        });
-        const sum = { blueSum: 0, redSum: 0 };
-        dateMap.forEach(({ blueMax, redMax }) => {
-            sum.blueSum += blueMax;
-            sum.redSum += redMax;
-        });
-        totalBlues = sum.blueSum;
-        totalReds = sum.redSum;
-        // return sum;
-    })
-}
+            });
+            const sum = { blueSum: totalBlueSum, redSum: totalRedSum };
+            totalBlues.push(sum.blueSum);
+            totalReds.push(sum.redSum);
+
+
+            resolve(sum);
+        })
+            .catch((error) => {
+                reject(error);
+            });
+    });
+};
 
 //jQuery plugin
 // jQuery.fn.ForceNumericOnly =
@@ -339,6 +337,7 @@ const allCorrectFirstPressDev = [];
 const allChoicesDev = [];
 const devButton = [];
 
-
+const totalBlues = [];
+const totalReds = [];
 
 let countingCars = null;
