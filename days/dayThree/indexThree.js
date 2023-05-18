@@ -64,16 +64,14 @@ function timeline() {
                                                     platform.saveSession(studySessionData, true)
                                                     document.getElementById("blueButton").style.display = "none";
                                                     document.getElementById("redButton").style.display = "none";
-                                                    // check what's going on here
-                                                    showWinnings()
-                                                    // document.getElementById("endOfDayMessage").style.display = "none";
-                                                    // document.getElementById("todayWins").innerHTML = '';
-                                                    // document.getElementById("redWins").innerHTML = '';
-                                                    // document.getElementById("blueWins").innerHTML = '';
-                                                    setTimeout(() => {
-                                                        document.getElementById("endOfGame").style.display = "inline";
-                                                    }, 7000);
-
+                                                    sumCorrectFirstPress().then((sum) => {
+                                                        showWinningsEnd(sum);
+                                                        platform.saveSession(totalWins, true);
+                                                        setTimeout(() => {
+                                                            hideWinningsEnd();
+                                                            document.getElementById("endOfGame").style.display = "inline";
+                                                        }, 10000);
+                                                    })
                                                 }
                                             }
                                             startDevaluation();
