@@ -39,9 +39,13 @@ async function start2tests() {
                             showStars();
                             let endStar = await startIntervalStar();
                             if (endStar == "done2") {
+                                reset_blueCar();
+                                reset_redCar();
+                                document.getElementById("redButton").style.display = "none";
+                                document.getElementById("blueButton").style.display = "none";
                                 setTimeout(() => {
-                                    document.getElementById("redButton").style.display = "none";
-                                    document.getElementById("blueButton").style.display = "none";
+                                    // document.getElementById("redButton").style.display = "none";
+                                    // document.getElementById("blueButton").style.display = "none";
                                     document.getElementById("startAfterStarTestButton").style.display = "inline";
                                     document.getElementById("iframe-element2").style.top = "1%"
                                     document.getElementById("iframe-element2").src = "../../timer/timer2.html";
