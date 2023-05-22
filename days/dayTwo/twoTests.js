@@ -1,4 +1,3 @@
-const intervalDone = [];
 let timeTwoTests = null;
 
 async function start2tests() {
@@ -19,7 +18,8 @@ async function start2tests() {
             let startIntervalTest = async function () {
                 let startBeforeStar = await startInterval2Tests();
                 if (startBeforeStar == "done1") {
-                    intervalDone.push("done1");
+                    reset_blueCar();
+                    reset_redCar();
                     setTimeout(() => {
                         document.getElementById("redButton").style.display = "none";
                         document.getElementById("blueButton").style.display = "none";
