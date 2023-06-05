@@ -3,14 +3,13 @@ let timeTwoTests = null;
 async function start2tests() {
     return new Promise(resolve => {
         document.getElementById("startButton").style.display = "inline";
+        let my_awesome_script = document.createElement('script');
+        my_awesome_script.setAttribute('src', '../../functions/orientation.js');
+        document.body.appendChild(my_awesome_script);
         document.getElementById("redButton").style.display = "inline";
         document.getElementById("blueButton").style.display = "inline";
         document.getElementById("gameScreen").style.display = "inline";
         document.getElementById("startButton").onclick = function () {
-            let my_awesome_script = document.createElement('script');
-            my_awesome_script.setAttribute('src', '../../functions/orientation.js');
-            // my_awesome_script.src = "../functions/orientation.js";
-            document.body.appendChild(my_awesome_script);
             document.getElementById("startButton").style.display = "none";
             studySessionData.doneDay2 = "startDay2";
             platform.saveSession(studySessionData, true);
@@ -18,8 +17,6 @@ async function start2tests() {
             let startIntervalTest = async function () {
                 let startBeforeStar = await startInterval2Tests();
                 if (startBeforeStar == "done1") {
-                    reset_blueCar();
-                    reset_redCar();
                     setTimeout(() => {
                         document.getElementById("redButton").style.display = "none";
                         document.getElementById("blueButton").style.display = "none";
@@ -41,11 +38,11 @@ async function start2tests() {
                             if (endStar == "done2") {
                                 reset_blueCar();
                                 reset_redCar();
-                                document.getElementById("redButton").style.display = "none";
-                                document.getElementById("blueButton").style.display = "none";
+                                // document.getElementById("redButton").style.display = "none";
+                                // document.getElementById("blueButton").style.display = "none";
                                 setTimeout(() => {
-                                    // document.getElementById("redButton").style.display = "none";
-                                    // document.getElementById("blueButton").style.display = "none";
+                                    document.getElementById("redButton").style.display = "none";
+                                    document.getElementById("blueButton").style.display = "none";
                                     document.getElementById("startAfterStarTestButton").style.display = "inline";
                                     document.getElementById("iframe-element2").style.top = "1%"
                                     document.getElementById("iframe-element2").src = "../../timer/timer2.html";
