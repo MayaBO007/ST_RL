@@ -53,7 +53,7 @@ function timeline() {
                                             document.getElementById("iframe-element").style.display = "inline";
                                         }, 1000)
                                         setTimeout(() => {
-                                            document.getElementById("startDevtestButtonRed").style.display = "none";
+                                            document.getElementById("startDevtestButtonRed").style.display = "inline";
                                             document.getElementById("iframe-element").style.display = "none";
                                             let startDevaluation = async function () {
                                                 let doneDayThree = await startDevTest(); // add promise and resolve
